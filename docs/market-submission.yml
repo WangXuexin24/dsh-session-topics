@@ -1,0 +1,54 @@
+# 社区目录收录条目（待提交副本）
+
+本文件是**副本**。真正要提交的是对方仓库里的一个文件：
+
+- 目标仓库：`https://github.com/awesome-dsh-plugin/awesome-dsh-plugin`
+- 提交路径：**`data/plugins/WangXuexin24__dsh-session-topics.yml`**（一个插件一个文件，永不冲突）
+- 内容：本文件 **`---` 以下**的部分（上面的注释不要带过去）
+
+## 提交前必须满足（CI 自动检查）
+
+| 门槛 | 状态 |
+|---|---|
+| `package.json` 声明 `dsh.bundle`（含 `patch`） | ✅ 已满足（`.patch` → `cordis.patch.yml`） |
+| 仓库带 `dsh-plugin` topic | ✅ 已加 |
+| 仓库有真实可用代码 | ✅（`lib/` 已提交，含 796 行离线冒烟测试） |
+| **仓库创建满 1 天** | ⏳ 仓库创建于 `2026-09-12T03:22:47Z` → **最早 `2026-09-13T03:22:47Z` 之后提交** |
+
+> CI 的 1 天门槛是自动检查，不是对插件质量的评价；未达标时"做完再重提"官方明确说不会有任何影响。
+> 今天提交会在第 3 步（repo age）失败，所以本文件先留在仓库里等一天。
+
+## 提交步骤（仓库满 1 天后）
+
+```sh
+# 1) fork（一次性）
+gh repo fork awesome-dsh-plugin/awesome-dsh-plugin --clone=false
+
+# 2) 把本仓库 docs/market-submission.yml 的 "---" 以下内容写成 yml，
+#    提交到 fork 的 data/plugins/WangXuexin24__dsh-session-topics.yml
+#    （用 gh api 逐文件提交，或 clone 后 git commit + push 到新分支都行）
+
+# 3) 开 PR（一个 PR 最多 3 条，我们只有 1 条）
+gh pr create --repo awesome-dsh-plugin/awesome-dsh-plugin \
+  --title "Add WangXuexin24/dsh-session-topics" \
+  --body "Adds dsh-session-topics: sidebar topic grouping for DSH web (client-only, zero host-service dependency)."
+```
+
+CI 依次检查：条目数量 → `dsh.bundle` → 仓库年龄 → `awesome-lint`。失败时会指出要改什么，
+**在同一分支推修复即可，无需重开 PR**。
+
+## 可选（做完市场体验更好）
+
+- **发 npm**：市场会显示下载量并按它排序；包里的 `repository` 字段必须指回本仓库才会被关联。
+  本机当前 npm 未登录（`ENEEDAUTH`），registry 是 `registry.npmmirror.com`（镜像，非发布源）。
+- **截图**：在本仓库根放 `screenshots.json`（1–8 张相对路径图片），市场详情页会按它展示；
+  不声明的话市场会从 README 自动抽取。
+
+---
+
+url: https://github.com/WangXuexin24/dsh-session-topics
+name: WangXuexin24/dsh-session-topics
+category: session
+description:
+  en: Groups sessions into per-workspace topic folders in the DSH web sidebar, with drag-to-file, nested subtopics and client-side persistence.
+  zh: 在 DSH Web 侧边栏把会话按「工作区 → 话题 → 子话题」归堆，支持拖拽归档、嵌套子话题与浏览器本地持久化。

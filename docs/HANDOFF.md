@@ -177,13 +177,28 @@ Select-String -Path D:\DSH\tmp\dump-topics.txt -Pattern 'session-topics' -Contex
 
 ---
 
-## 8. 发布到社区市场（若要做）
+## 8. 发布与收录（现状：GitHub 已发布；市场收录**未提交**）
 
-1. 推到 GitHub 仓库（`lib/` 必须一起提交 —— dsh 从 git 安装不会跑构建）。
-2. 直装验证：`dsh plugin --profile web add github:<user>/dsh-session-topics#<tag>`。
-3. 发布 npm（可选；`files` 已含 `lib`、`cordis.patch.yml`、`README.md`、`CHANGELOG.md`、`LICENSE`、`docs`）。
-4. 申请收录到市场注册表（`awesome-dsh-plugin`，本机可通过 `/dsh-market/registry` 查它的目录，
-   当前 3000+ 插件）—— **需要用户的账号凭据，agent 不要代替用户发布**。
+**已完成（2026-09-12）**
+- 公开仓库 <https://github.com/WangXuexin24/dsh-session-topics>（PUBLIC / 默认分支 `main`）
+- 已加 topics：`dsh` `deepseek-harness` `plugin` `session` `sidebar` `dsh-plugin`
+- 他人安装：`dsh plugin --profile web add github:WangXuexin24/dsh-session-topics`
+- 本机：`link:` 安装，市场「已安装」列表带开关
+
+**未做（可选，按需决定）**
+- **npm 发布**：本机 `npm whoami` → 未登录（`ENEEDAUTH`），且 registry 是
+  `registry.npmmirror.com`（镜像，不是发布源）。不发不影响从 GitHub 安装。
+- **社区目录收录**（出现在市场「发现 / 主题」）：条目已备好 →
+  [`market-submission.yml`](./market-submission.yml)。提交前注意：
+  - **CI 硬门槛：仓库创建满 1 天**（本仓库创建于 `2026-09-12T03:22:47Z`）——不够会被自动拒；
+    官方明确说"做完再重提"不会有任何影响。
+  - 一个 PR 最多 3 条；`package.json` 必须有 `dsh.bundle`（我们满足 —— 这是最常见的被拒原因）。
+  - CI 依次查：条目数 → `dsh.bundle` → 仓库年龄 → `awesome-lint`；失败可在同分支推修复。
+
+**若将来要提交，建议先做的事**（评审会实际读代码并逐句核对描述）
+1. §6 待改进 1：话题树导出/导入 —— 分组只存浏览器本地、清缓存即丢，是用户最容易踩的坑。
+2. §5.1 空壳会话：**不要**为了收录去改 host 结构（会破坏「零 host 依赖」的核心设计）；
+   正解是上游修复，或做**默认关闭**的可选缓解。
 
 ---
 

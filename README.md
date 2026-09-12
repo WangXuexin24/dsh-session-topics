@@ -215,12 +215,16 @@ test/smoke.mjs      离线冒烟测试
 - 官方 `sidebar.workspaces` 槽位演进时需要人工跟进（本插件顶替了官方浏览器）。
 - 分组数据存在浏览器本地：不跨设备、清缓存即丢（有 `.bak` + 恢复条兜底）。
 
-## 发布与收录状态
+## 发布状态
 
-- 当前是**本地 `link:` 安装**：只在本机 profile 可见，出现在插件市场的「已安装」列表。
-- 要出现在「发现 / 主题」（社区目录），需要：① 推到 GitHub 仓库（`lib/` 必须一起提交，
-  dsh 从 git 安装不跑构建）②（可选）发布 npm ③ 向市场注册表 `awesome-dsh-plugin` 申请收录。
-  步骤与注意事项见 [`docs/HANDOFF.md`](docs/HANDOFF.md) §8。
+- **已公开发布**：<https://github.com/WangXuexin24/dsh-session-topics>（PUBLIC，`main`）
+  - 他人安装：`dsh plugin --profile web add github:WangXuexin24/dsh-session-topics`
+  - 本机仍以 `link:` 安装，出现在插件市场「已安装」列表（带开关）
+  - `lib/` 已随仓库提交（dsh 从 git 安装不跑构建）
+- **npm**：未发布 —— **可选**。不发也能从 GitHub 安装；发了市场才会显示下载量。
+- **社区目录收录**（出现在市场「发现 / 主题」）：**可选，尚未提交**。
+  条目已备好在 [`docs/market-submission.yml`](docs/market-submission.yml)，随时可用；
+  另有「仓库创建满 1 天」的 CI 门槛。**不收录不影响安装，只影响被搜到的概率。**
 
 ## License
 
