@@ -1,0 +1,14 @@
+# 依赖/产物（本插件不构建：lib/ 是手写并直接提交的产物）
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 临时物
+tmp/
+*.bak-*

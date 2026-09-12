@@ -1,0 +1,8 @@
+# dsh-session-topics bundle patch.
+#
+# 插入一行 host 行。host 半边是空壳（lib/index.js 不 inject 任何服务），
+# 因此不可能在启动期挂起 —— 这是本插件相对社区同类插件的关键差异：
+# 全部功能在 client 半边，分组数据存浏览器本地（客户端 store）。
+- insert:
+    - id: session-topics
+      name: 'dsh-session-topics'
