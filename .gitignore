@@ -9,6 +9,7 @@ Thumbs.db
 .idea/
 .vscode/
 
-# 临时物
+# 临时物 / 工具备份（windows_encode_fix 等会生成 *.bak）
 tmp/
+*.bak
 *.bak-*
