@@ -12,7 +12,7 @@
 | 项 | 值 |
 |---|---|
 | 插件 | `dsh-session-topics` v0.1.0，**纯客户端** |
-| 安装 | `~/.dsh/profiles/web/package.json`：`"dsh-session-topics": "link:D:/DSH_Projects/dsh-session-topics"`，且同名条目在 `dsh.profile.bundles` 里 |
+| 安装 | `~/.dsh/profiles/web/package.json`：`"dsh-session-topics": "link:D:/DSH/projects/dsh-session-topics"`，且同名条目在 `dsh.profile.bundles` 里 |
 | 市场状态 | 插件市场 → **已安装** 列表中可见，带「启用中」开关 / 恢复 / 卸载 |
 | host 半边 | `lib/index.js` **故意空壳**，不 inject 任何服务（结构性零启动风险） |
 | 功能半边 | `lib/client.js`（约 1325 行，`window.__ModuleLoader__` 包装） |
@@ -165,7 +165,7 @@ patch 层（禁用/启用该插件行），插件本身不需要实现开关。
 #    改了 package.json / cordis.patch.yml 才需要重启 dsh web
 
 # 2) 离线回归（不需要浏览器、不需要装依赖）
-node D:\DSH_Projects\dsh-session-topics\test\smoke.mjs      # 期望 RESULT: all checks passed
+node D:\DSH\projects\dsh-session-topics\test\smoke.mjs      # 期望 RESULT: all checks passed
 
 # 3) 静态校验插件行是否被正确解析（工具沙箱里必须重定向到文件，否则输出会被截断成空）
 cmd /c "dsh --profile web --dump-config > D:\DSH\tmp\dump-topics.txt 2>&1"

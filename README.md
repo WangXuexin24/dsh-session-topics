@@ -112,13 +112,13 @@ DSH 官方的侧边栏只能**按工作区分组**，而工作区的成员资格
 ## 安装（本地目录）
 
 ```sh
-dsh plugin --profile web add D:/DSH_Projects/dsh-session-topics
+dsh plugin --profile web add D:/DSH/projects/dsh-session-topics
 ```
 
 或按本 profile 已有的 `link:` 惯例，在 `~/.dsh/profiles/web/package.json` 里加：
 
 ```json
-"dsh-session-topics": "link:D:/DSH_Projects/dsh-session-topics"
+"dsh-session-topics": "link:D:/DSH/projects/dsh-session-topics"
 ```
 
 并把它加进同一文件的 `dsh.profile.bundles` 数组。
@@ -184,12 +184,12 @@ test/smoke.mjs      离线冒烟测试
 
 | 我想… | 怎么做 |
 |---|---|
-| **装** | 插件市场 → 安装；或 `dsh plugin --profile web add D:/DSH_Projects/dsh-session-topics` |
+| **装** | 插件市场 → 安装；或 `dsh plugin --profile web add D:/DSH/projects/dsh-session-topics` |
 | **临时关掉** | 插件市场 → 已安装 → 本插件卡片的「启用中」开关关掉 → 按提示**重启 DeepSeek Harness** |
 | **再打开** | 同一开关打开 → 重启 |
 | **恢复出厂**（重置分组） | 卡片上的「恢复」按钮 |
 | **卸载** | 卡片上的「卸载」；或 `dsh plugin --profile web remove dsh-session-topics` |
-| **升级本地代码** | 直接改 `D:/DSH_Projects/dsh-session-topics` 里的文件 → **刷新浏览器页面**即可（客户端 bundle 每次加载都重新取）。只有改了 `package.json` / `cordis.patch.yml` 才需要重启 `dsh web` |
+| **升级本地代码** | 直接改 `D:/DSH/projects/dsh-session-topics` 里的文件 → **刷新浏览器页面**即可（客户端 bundle 每次加载都重新取）。只有改了 `package.json` / `cordis.patch.yml` 才需要重启 `dsh web` |
 | **确认它在跑** | 侧边栏是「话题」分组而不是官方的纯工作区分组 = 它在跑；`node test/smoke.mjs` 应输出 `RESULT: all checks passed` |
 
 > 开关与「恢复 / 卸载」是**插件市场**（`dshmarket`）的能力：它改的是 profile 的 patch 层，
