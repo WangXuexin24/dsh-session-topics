@@ -168,8 +168,8 @@ patch 层（禁用/启用该插件行），插件本身不需要实现开关。
 node D:\DSH_Projects\dsh-session-topics\test\smoke.mjs      # 期望 RESULT: all checks passed
 
 # 3) 静态校验插件行是否被正确解析（工具沙箱里必须重定向到文件，否则输出会被截断成空）
-cmd /c "dsh --profile web --dump-config > tmp\dump-topics.txt 2>&1"
-Select-String -Path tmp\dump-topics.txt -Pattern 'session-topics' -Context 0,2
+cmd /c "dsh --profile web --dump-config > D:\DSH\tmp\dump-topics.txt 2>&1"
+Select-String -Path D:\DSH\tmp\dump-topics.txt -Pattern 'session-topics' -Context 0,2
 ```
 
 **回归底线**：冒烟测试必须全绿；动了槽位注册或渲染结构，必须手工点一遍
